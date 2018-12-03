@@ -3,7 +3,6 @@
   "version": "0.0.0-a",
   "description": "My personal website, to display my portfolio as a developer and services as consultant.",
   "homepage": "https://vniche.github.io/",
-  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
