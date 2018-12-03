@@ -2,6 +2,7 @@
   "name": "vniche.github.io",
   "version": "0.0.0-a",
   "description": "My personal website, to display my portfolio as a developer and services as consultant.",
+  "homepage": "https://vniche.github.io/",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -30,7 +31,6 @@
   "bugs": {
     "url": "https://github.com/vniche/vniche.github.io/issues"
   },
-  "homepage": "https://github.com/vniche/vniche.github.io#readme",
   "browserslist": [
     ">0.2%",
     "not dead",
