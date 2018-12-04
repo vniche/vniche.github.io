@@ -9,10 +9,14 @@ export const Header = styled.header`
 
 export const Icon = styled.i`
   height: 64px;
-  line-height: 58px;
   vertical-align: top;
   display: inline-block;
-  padding: 0 0 0 24px;
   cursor: pointer;
   font-size: 20px;
+`
+
+export const Logo = styled.img`
+  height: 32px;
+  width: 32px;
+  padding: 16px;
 `

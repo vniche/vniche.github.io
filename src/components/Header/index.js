@@ -18,7 +18,7 @@ export default class Header extends PureComponent {
     return (
       <Styled.Header>
         <Styled.Icon>
-          <img src={logo} />
+          <Styled.Logo src={logo} />
         </Styled.Icon>
       </Styled.Header>
     );
