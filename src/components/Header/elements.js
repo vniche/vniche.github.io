@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const Header = styled.header`
   min-height: 64px;
+  height: 64px;
+  max-width: 960px;
+  margin: 0 auto;
   padding: 0 12px 0 0;
   background: #fff;
   position: relative;
