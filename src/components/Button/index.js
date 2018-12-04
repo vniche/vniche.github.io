@@ -5,11 +5,11 @@ export default class Button extends PureComponent {
   render() {
     const {
       primary,
-      style,
+      className,
       children
     } = this.props;
     return (
-      <Styled.Button primary={primary} style={style}>
+      <Styled.Button primary={primary} className={className}>
         {children}
       </Styled.Button >
     );

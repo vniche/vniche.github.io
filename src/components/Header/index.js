@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
-import * as Styled from './elements'
+import * as Styled from './elements';
 
-import Button from '../Button'
-
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/logo.svg';
 
 export default class Header extends PureComponent {
   componentWillUnmount() {
@@ -23,11 +21,11 @@ export default class Header extends PureComponent {
           <Styled.Logo src={logo} />
         </Styled.Icon>
         <Styled.RightMenu>
-          <Button primary style={{ margin: "16px" }}>
+          <Styled.Button primary>
             Get in touch
-          </Button>
+          </Styled.Button>
         </Styled.RightMenu>
       </Styled.Header>
     );
   }
-}
+};
