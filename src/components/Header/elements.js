@@ -23,3 +23,9 @@ export const Logo = styled.img`
   width: 32px;
   padding: 16px;
 `
+
+export const RightMenu = styled.div`
+  float: right;
+  height: 100%;
+  overflow: hidden;
+`
