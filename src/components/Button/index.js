@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import * as Styled from './elements'
+import * as Styled from './elements';
 
 export default class Button extends PureComponent {
   render() {
@@ -14,4 +14,4 @@ export default class Button extends PureComponent {
       </Styled.Button >
     );
   }
-}
+};
