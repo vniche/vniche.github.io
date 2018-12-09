@@ -8,6 +8,7 @@ export const Section = styled(CustomSection)`
   background-image: linear-gradient(to right, #4A86E8 , #60019F);
   min-height: 500px;
   position: relative;
+  overflow-x: hidden;
 `;
 
 const float = keyframes`
@@ -39,11 +40,11 @@ const pulse = keyframes`
 
 export const Devices = styled(CustomDevices)`
   position: absolute;
-  top: 20px;
-  left: 16px;
+  top: 5px;
   height: 450px;
 
-  @media (min-width: 480px) {
+  /* media query for when screen reaches svg size */
+  @media (min-width: 462px) {
     left: auto;
     right: 0;
   }
