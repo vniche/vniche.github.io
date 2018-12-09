@@ -1,14 +1,15 @@
 import styled from 'styled-components';
+import { sizes } from '../../constants';
 
+import { ReactComponent as CustomLogo } from '../../assets/logo.svg';
 import CustomButton from '../Button';
+import CustomWrapper from '../Wrapper';
 
-export const Header = styled.header`
+export const Wrapper = styled(CustomWrapper)`
   min-height: 64px;
   height: 64px;
-  max-width: 960px;
-  margin: 0 auto;
+  margin: 0  ${props => (props.windowWidth > sizes.mobile) ? ((props.windowWidth - sizes.mobile) / 2) + "px" : "0px"} !important;
   background: #fff;
-  position: relative;
 `;
 
 export const Icon = styled.i`
@@ -19,7 +20,7 @@ export const Icon = styled.i`
   font-size: 20px;
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(CustomLogo)`
   height: 32px;
   width: 32px;
   padding: 16px;

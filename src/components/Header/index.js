@@ -1,31 +1,22 @@
 import React, { PureComponent } from 'react';
+import withWindowDimensions from '../../hocs/withWindowDimensions';
 import * as Styled from './elements';
 
-import logo from '../../assets/logo.svg';
-
-export default class Header extends PureComponent {
-  componentWillUnmount() {
-    this.triggerResizeEvent.cancel();
-  }
-
-  triggerResizeEvent() {
-    const event = document.createEvent('HTMLEvents');
-    event.initEvent('resize', true, false);
-    window.dispatchEvent(event);
-  }
-
+class Header extends PureComponent {
   render() {
     return (
-      <Styled.Header>
+      <Styled.Wrapper {...this.props}>
         <Styled.Icon>
-          <Styled.Logo src={logo} />
+          <Styled.Logo />
         </Styled.Icon>
         <Styled.RightMenu>
           <Styled.Button primary>
             Get in touch
           </Styled.Button>
         </Styled.RightMenu>
-      </Styled.Header>
+      </Styled.Wrapper>
     );
   }
 };
+
+export default withWindowDimensions(Header);

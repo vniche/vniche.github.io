@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Button = styled.button`
   /* Adapt the colors based on primary prop */
@@ -23,4 +23,4 @@ export const Button = styled.button`
   transition: all .3s cubic-bezier(.645,.045,.355,1);
   position: relative;
   box-shadow: 0 2px 0 rgba(0,0,0,.015);
-`
+`;
