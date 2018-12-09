@@ -49,14 +49,16 @@ export const Devices = styled(CustomDevices)`
     right: 0;
   }
 
-  #background > #tablet, #background > #side {
-    transform: translatey(0px);
-	  animation: ${float} 6s ease-in-out infinite;
-  }
+  @media (min-width: 768px) {
+    #background > #tablet, #background > #side {
+      transform: translatey(0px);
+      animation: ${float} 6s ease-in-out infinite;
+    }
 
-  #background > g:first-of-type {
-    transform: translatey(0px);
-	  animation: ${pulse} 6s ease-in-out infinite;
+    #background > g:first-of-type {
+      transform: translatey(0px);
+      animation: ${pulse} 6s ease-in-out infinite;
+    }
   }
 `;
 
