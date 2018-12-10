@@ -21,6 +21,7 @@ export const Button = styled.button`
   -ms-user-select: none;
   user-select: none;
   transition: all .3s cubic-bezier(.645,.045,.355,1);
+  outline: none;
   position: relative;
   box-shadow: 0 2px 0 rgba(0,0,0,.015);
 `;
