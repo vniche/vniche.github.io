@@ -6,11 +6,11 @@ import { ReactComponent as CustomHeart } from '../../assets/heart.svg';
 
 export const Footer = styled.footer`
   max-width: ${sizes.mobile}px;
-  padding: 0 ${props => (props.windowWidth > sizes.mobile) ? ((props.windowWidth - sizes.mobile) / 2) + "px" : "0px"};
+  padding: 10px ${props => (props.windowWidth > sizes.mobile) ? ((props.windowWidth - sizes.mobile) / 2) + "px" : "0px"};
   position: relative;
   text-align: center;
   color: rgba(0,0,0,.45);
-  font-size: 14px;
+  font-size: 18px;
   line-height: 40px;
 `;
 
