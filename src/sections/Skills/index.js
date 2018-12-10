@@ -1,0 +1,39 @@
+import React, { Component } from 'react';
+import * as Styled from './elements';
+
+export default class Banner extends Component {
+  render() {
+    return (
+      <Styled.Section>
+        <Styled.h3>Build you one or make it better,</Styled.h3>
+        <Styled.span>but first, make sure i'm the right tool for the job.</Styled.span>
+        <Styled.h4>Expertise on:</Styled.h4>
+        <div style={{ display: 'flex', flexWrap: 'wrap', marginBottom: '15px' }}>
+          <Styled.Card>
+            <h4>Culture</h4>
+            <ul>
+              <li>DevOps</li>
+              <li>Agile</li>
+            </ul>
+          </Styled.Card>
+          <Styled.Card>
+            <h4>Techs</h4>
+            <ul>
+              <li>Golang</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>CI/CD</li>
+            </ul>
+          </Styled.Card>
+          <Styled.Card>
+            <h4>Troubleshoot</h4>
+            <ul>
+              <li>Performance</li>
+              <li>Network</li>
+            </ul>
+          </Styled.Card>
+        </div>
+      </Styled.Section>
+    );
+  }
+};
