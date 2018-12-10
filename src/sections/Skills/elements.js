@@ -37,7 +37,7 @@ export const h4 = styled.h4`
 `;
 
 export const Card = styled(CustomCard)`
-  margin: 15px 15px 0 15px;
+  margin: 10px 5px 0 5px;
   min-width: 150px;
   width: calc(100% - 34px);
 
@@ -60,10 +60,10 @@ export const Card = styled(CustomCard)`
   }
 
   @media (min-width: 480px) {
-    width: calc(50% - (34px + 30px));
+    width: calc(50% - (34px + 10px));
   }
 
   @media (min-width: 768px) {
-    width: calc(33.3% - (34px + 30px));
+    width: calc(33.3% - (34px + 10px));
   }
 `;
