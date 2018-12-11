@@ -40,11 +40,11 @@ export const Card = styled(CustomCard)`
   margin: 10px 5px 0 5px;
   min-width: 150px;
   width: calc(100% - 34px);
+  padding: 24px;
 
   h4 {
     font-weight: 400;
-    line-height: 25px;
-    font-size: 1.5em;
+    font-size: 25px;
     margin: 0;
     color: rgba(0,0,0,.85);
   }
@@ -54,16 +54,15 @@ export const Card = styled(CustomCard)`
     padding-left: 20px;
     li {
       font-weight: 300;
-      font-size: 18px;
-      line-height: 30px;
+      font-size: 20px;
     }
   }
 
   @media (min-width: 480px) {
-    width: calc(50% - (34px + 10px));
+    width: calc(50% - (50px + 10px));
   }
 
   @media (min-width: 768px) {
-    width: calc(33.3% - (34px + 10px));
+    width: calc(33.3% - (50px + 10px));
   }
 `;
