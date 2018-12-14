@@ -14,6 +14,7 @@ export default class Banner extends Component {
             <ul>
               <li>DevOps</li>
               <li>Agile</li>
+              <li>Collaborative</li>
             </ul>
           </Styled.Card>
           <Styled.Card>
@@ -21,15 +22,21 @@ export default class Banner extends Component {
             <ul>
               <li>Golang</li>
               <li>JavaScript</li>
-              <li>React</li>
-              <li>CI/CD</li>
+              <li>ReactJS (Web)</li>
+              <li>Java</li>
+              <li>Git</li>
+              <li>Queues (PubSub)</li>
             </ul>
           </Styled.Card>
           <Styled.Card>
-            <h4>Troubleshoot</h4>
+            <h4>Infrastructure</h4>
             <ul>
-              <li>Performance</li>
-              <li>Network</li>
+              <li>Kubernetes</li>
+              <li>Ansible</li>
+              <li>CI/CD Pipelines</li>
+              <li>Serverless</li>
+              <li>Docker</li>
+              <li>Linux</li>
             </ul>
           </Styled.Card>
         </div>
