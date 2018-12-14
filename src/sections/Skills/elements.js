@@ -44,7 +44,8 @@ export const Card = styled(CustomCard)`
 
   h4 {
     font-weight: 400;
-    font-size: 25px;
+    font-size: 20px;
+    line-height: 20px;
     margin: 0;
     color: rgba(0,0,0,.85);
   }
@@ -52,9 +53,11 @@ export const Card = styled(CustomCard)`
   ul {
     list-style-image: url(${listIcon});
     padding-left: 20px;
+    margin: 10px 0;
     li {
       font-weight: 300;
-      font-size: 20px;
+      font-size: 16px;
+      line-height: 25px;
     }
   }
 
