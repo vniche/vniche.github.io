@@ -35,13 +35,15 @@ export default class Articles extends Component {
         <h4>{item.title}</h4>
       </Styled.Card>
     )) : (
-      <p>loading</p>
+        Array(6).fill().map((_, index) =>
+          <Styled.LoadingCard key={index} />
+        )
     );
 
     return (
       <Styled.Section>
         <Styled.h4>Articles i've written:</Styled.h4>
-        { storiesList }
+        {storiesList}
       </Styled.Section>
     );
   }

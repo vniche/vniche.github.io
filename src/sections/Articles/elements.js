@@ -1,15 +1,14 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import CustomSection from '../../components/Section';
 import CustomCard from '../../components/Card';
 
 export const Section = styled(CustomSection)`
-  min-height: 500px;
   position: relative;
   overflow-x: hidden;
   background-repeat: no-repeat;
   background-position: 50% 60%;
-  padding-bottom: 50px;
+  padding-bottom: 15px;
 `;
 
 export const h3 = styled.h3`
@@ -84,5 +83,41 @@ export const Card = styled(CustomCard)`
       margin-top: 10px;
     }
     width: calc(33.3% - (48px + 2px + 10px));
+  }
+`;
+
+const load = keyframes`
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 230px 0;
+  }
+`;
+
+export const LoadingCard = styled.div`
+  width: calc(100% - 10px);
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
+  margin: 10px 5px 5px 5px;
+  height: 250px;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #fafafa, #f3f3f3);
+  animation: ${load} .8s infinite;
+  display: inline-block;
+  box-shadow: 0 5px 5px rgba(0,0,0,.05);
+
+  @media (min-width: 480px) {
+    width: calc(50% - 10px);
+    
+    &:not(:first-of-type) {
+      margin-top: 10px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &:not(:first-of-type) {
+      margin-top: 10px;
+    }
+    width: calc(33.3% - 10px);
   }
 `;
