@@ -17,6 +17,10 @@ export default class Articles extends Component {
     });
   };
 
+  handleClick = (articleURL) => {
+    window.location.href = articleURL;
+  };
+
   render() {
     const {
       stories,
@@ -26,9 +30,9 @@ export default class Articles extends Component {
     const storiesList = (!loading) ? (stories.filter((item) => {
       return item.categories.length > 0
     }).map((item, index) =>
-      <Styled.Card key={index}>
-        <h4>{item.title}</h4>
+      <Styled.Card key={index} onClick={() => this.handleClick(item.link)}>
         <img src={item.thumbnail} alt="Article thumbnail" />
+        <h4>{item.title}</h4>
       </Styled.Card>
     )) : (
       <p>loading</p>
