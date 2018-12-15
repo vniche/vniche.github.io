@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as Styled from './elements';
 
-export default class Banner extends Component {
+export default class Skills extends Component {
   render() {
     return (
       <Styled.Section>
