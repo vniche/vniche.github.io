@@ -6,9 +6,9 @@ import CustomButton from '../../components/Button';
 
 export const Section = styled(CustomSection)`
   background-image: linear-gradient(to right, #4A86E8 , #60019F);
-  min-height: 500px;
   position: relative;
   overflow-x: hidden;
+  padding-bottom: 24px;
 `;
 
 const float = keyframes`
