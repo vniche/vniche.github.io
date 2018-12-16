@@ -36,7 +36,9 @@ export default class Articles extends Component {
       </Styled.Card>
     )) : (
         Array(6).fill().map((_, index) =>
-          <Styled.LoadingCard key={index} />
+          <Styled.LoadingCard key={index}>
+            <div className="loading" />
+          </Styled.LoadingCard>
         )
     );
 

@@ -6,8 +6,6 @@ import CustomCard from '../../components/Card';
 export const Section = styled(CustomSection)`
   position: relative;
   overflow-x: hidden;
-  background-repeat: no-repeat;
-  background-position: 50% 60%;
   padding-bottom: 15px;
 `;
 
@@ -87,27 +85,32 @@ export const Card = styled(CustomCard)`
 `;
 
 const load = keyframes`
-  0% {
-    background-position: 0 0;
+  0%, 100% {
+    transform: translatex(0%);
   }
-  100% {
-    background-position: 230px 0;
+  50% {
+    transform: translatex(-50%);
   }
 `;
 
-export const LoadingCard = styled.div`
-  width: calc(100% - 10px);
-  transition: all .3s cubic-bezier(.645,.045,.355,1);
+export const LoadingCard = styled(CustomCard)`
+  width: calc(100% - (24px - 2px - 10px));
   margin: 10px 5px 5px 5px;
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
   height: 250px;
-  border-radius: 4px;
-  background-image: linear-gradient(to right, #fafafa, #f3f3f3);
-  animation: ${load} .8s infinite;
-  display: inline-block;
-  box-shadow: 0 5px 5px rgba(0,0,0,.05);
+  padding: 0;
+  overflow: hidden;
+  
+  .loading {
+    width: 200%;
+    background-image: linear-gradient(to right, #ffffff, #f3f3f3);
+    animation: ${load} .5s infinite;
+    height: 100%;
+    vertical-align: middle;
+  }
 
   @media (min-width: 480px) {
-    width: calc(50% - 10px);
+    width: calc(50% - (24px - 2px - 10px));
     
     &:not(:first-of-type) {
       margin-top: 10px;
@@ -118,6 +121,6 @@ export const LoadingCard = styled.div`
     &:not(:first-of-type) {
       margin-top: 10px;
     }
-    width: calc(33.3% - 10px);
+    width: calc(33.3% - (24px - 2px - 10px));
   }
 `;
