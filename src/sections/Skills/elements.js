@@ -7,11 +7,11 @@ import background from '../../assets/skills-bg.svg';
 
 export const Section = styled(CustomSection)`
   background-image: url(${background});
-  min-height: 500px;
   position: relative;
   overflow-x: hidden;
   background-repeat: no-repeat;
   background-position: 50% 60%;
+  padding-bottom: 24px;
 `;
 
 export const h3 = styled.h3`
