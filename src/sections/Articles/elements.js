@@ -2,11 +2,12 @@ import styled, { keyframes } from 'styled-components';
 
 import CustomSection from '../../components/Section';
 import CustomCard from '../../components/Card';
+import CustomButton from '../../components/Button';
 
 export const Section = styled(CustomSection)`
   position: relative;
   overflow-x: hidden;
-  padding-bottom: 15px;
+  padding-bottom: 80px;
 `;
 
 export const h3 = styled.h3`
@@ -123,4 +124,10 @@ export const LoadingCard = styled(CustomCard)`
     }
     width: calc(33.3% - (24px - 2px - 10px));
   }
+`;
+
+export const Button = styled(CustomButton)`
+  position: absolute;
+  left: calc(50% - 60px);
+  bottom: -55px;
 `;

@@ -46,6 +46,9 @@ export default class Articles extends Component {
       <Styled.Section>
         <Styled.h4>Articles i've written:</Styled.h4>
         {storiesList}
+        <Styled.Button primary>
+          Get in touch
+        </Styled.Button>
       </Styled.Section>
     );
   }

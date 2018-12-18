@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components';
 
 import CustomSection from '../../components/Section';
 import { ReactComponent as CustomDevices } from '../../assets/banner-bg.svg';
-import CustomButton from '../../components/Button';
 
 export const Section = styled(CustomSection)`
   background-image: linear-gradient(to right, #4A86E8 , #60019F);
@@ -50,6 +49,8 @@ export const Devices = styled(CustomDevices)`
   }
 
   @media (min-width: 768px) {
+    top: 15px;
+
     #background > #tablet, #background > #side {
       transform: translatey(0px);
       animation: ${float} 6s ease-in-out infinite;
@@ -75,11 +76,5 @@ export const h2 = styled.h2`
     line-height: 40px;
     font-size: 2.5em;
     margin: 0 0 310px 0;
-  }
-`;
-
-export const Button = styled(CustomButton)`
-  @media (min-width: 480px) {
-    transform: scale(1.2) translateX(10%);
   }
 `;
