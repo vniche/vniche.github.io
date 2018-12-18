@@ -4,13 +4,17 @@ import * as Styled from './elements';
 
 class Header extends PureComponent {
   render() {
+    const {
+      handleOpen
+    } = this.props;
+    
     return (
       <Styled.Wrapper {...this.props}>
         <Styled.Icon>
           <Styled.Logo />
         </Styled.Icon>
         <Styled.RightMenu>
-          <Styled.Button primary>
+          <Styled.Button primary onClick={handleOpen}>
             Get in touch
           </Styled.Button>
         </Styled.RightMenu>

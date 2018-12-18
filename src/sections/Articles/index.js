@@ -27,6 +27,10 @@ export default class Articles extends Component {
       loading
     } = this.state;
 
+    const {
+      handleOpen
+    } = this.props;
+
     const storiesList = (!loading) ? (stories.filter((item) => {
       return item.categories.length > 0
     }).map((item, index) =>
@@ -46,7 +50,7 @@ export default class Articles extends Component {
       <Styled.Section>
         <Styled.h4>Articles i've written:</Styled.h4>
         {storiesList}
-        <Styled.Button primary>
+        <Styled.Button primary onClick={handleOpen}>
           Get in touch
         </Styled.Button>
       </Styled.Section>

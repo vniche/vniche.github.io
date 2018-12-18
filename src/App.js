@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from './components/Modal';
 import Header from './components/Header';
 import Banner from './sections/Banner';
 import Skills from './sections/Skills';
@@ -6,13 +7,33 @@ import Articles from './sections/Articles';
 import Footer from './components/Footer';
 
 class App extends Component {
+  state = {
+    showModal: false
+  };
+
+  closeModal = () => {
+    this.setState({
+      showModal: false
+    });
+  };
+
+  openModal = () => {
+    this.setState({
+      showModal: true
+    });
+  };
+
   render() {
+    const {
+      showModal
+    } = this.state;
     return (
       <div className="App">
-        <Header />
+        <Modal hidden={!showModal} handleClose={this.closeModal} />
+        <Header handleOpen={this.openModal} />
         <Banner />
         <Skills />
-        <Articles />
+        <Articles handleOpen={this.openModal}  />
         <Footer />
       </div>
     );
