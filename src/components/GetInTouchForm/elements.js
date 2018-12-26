@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import CustomButton from '../Button';
 import { ReactComponent as CustomSend } from '../../assets/send.svg';
 import { ReactComponent as CustomLoading } from '../../assets/loading.svg';
+import { ReactComponent as CustomCheck } from '../../assets/check.svg';
 
 export const h3 = styled.h3`
   margin: 0 0 10px 0;
@@ -75,5 +76,10 @@ export const Loading = styled(CustomLoading)`
   width: 20px;
   height: 20px;
   animation: ${rotate} .6s ease-in-out infinite;
+
+export const Check = styled(CustomCheck)`
+  height: 12px;
+  transform: scale(1.5);
   fill: #fff;
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
 `;
