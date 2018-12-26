@@ -15,6 +15,7 @@ const show = keyframes`
 
 export const Card = styled(CustomCard)`
   opacity: ${props => (props.hidden ? "0" : "1")};
+  display: ${props => (!props.hidden ? "block" : "none")};
   animation: ${show} .3s;
   padding: 24px;
   max-width: 420px;
@@ -30,6 +31,7 @@ export const Card = styled(CustomCard)`
 export const Overlay = styled.div`
   background-color: rgb(0,0,0);
   opacity: ${props => (props.hidden ? "0" : ".85")};
+  display: ${props => (!props.hidden ? "block" : "none")};
   animation: ${show} .3s;
   width: 100vw;
   height: 100vh;
