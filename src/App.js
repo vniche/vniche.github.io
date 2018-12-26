@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <div className="App">
         <Modal hidden={!showModal} handleClose={this.closeModal}>
-          <GetInTouchForm />
+          <GetInTouchForm handleClose={this.closeModal} />
         </Modal>
         <Header handleOpen={this.openModal} />
         <Banner />

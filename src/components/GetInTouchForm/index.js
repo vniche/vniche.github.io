@@ -28,6 +28,10 @@ export default class GetInTouchForm extends PureComponent {
   async handleSubmit(event) {
     event.preventDefault();
 
+    const {
+      handleClose
+    } = this.props;
+
     this.setState({
       sending: true
     });
@@ -55,6 +59,7 @@ export default class GetInTouchForm extends PureComponent {
        
       setTimeout(() => {
         this.setState(initialState);
+        handleClose();
       }, 2000);
     } catch (error) {
       console.error(error);
