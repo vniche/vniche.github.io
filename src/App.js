@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import { 
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks
+} from 'body-scroll-lock';
 import Modal from './components/Modal';
 import GetInTouchForm from './components/GetInTouchForm';
 import Header from './components/Header';
@@ -8,6 +13,9 @@ import Articles from './sections/Articles';
 import Footer from './components/Footer';
 
 class App extends Component {
+  targetRef = React.createRef();
+  targetElement = null;
+
   state = {
     showModal: false
   };
@@ -16,13 +24,23 @@ class App extends Component {
     this.setState({
       showModal: false
     });
+    enableBodyScroll(this.targetElement);
   };
 
   openModal = () => {
     this.setState({
       showModal: true
     });
+    disableBodyScroll(this.targetElement);
   };
+
+  async componentDidMount() {
+    this.targetElement = this.targetRef.current;;
+  }
+
+  async componentWillUnmount() {
+    clearAllBodyScrollLocks();
+  }
 
   render() {
     const {
