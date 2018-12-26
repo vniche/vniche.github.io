@@ -41,6 +41,7 @@ export const Card = styled(CustomCard)`
   min-width: 150px;
   width: calc(100% - 34px);
   padding: 24px;
+  min-height: auto;
 
   h4 {
     font-weight: 400;
