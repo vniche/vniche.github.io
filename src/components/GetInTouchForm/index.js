@@ -2,27 +2,27 @@ import React, { PureComponent } from 'react';
 import * as Styled from './elements';
 import { getInTouch } from '../../services/getInTouch';
 
+const initialState = {
+  name: "",
+  email: "",
+  message: "",
+  sending: false,
+  success: false,
+  error: null
+};
+
 export default class GetInTouchForm extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: "",
-      email: "",
-      message: "",
-      sending: false
-    };
+
+    this.state = initialState;
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   async componentWillMount() {
-    this.setState({
-      name: "",
-      email: "",
-      message: "",
-      sending: false
-    });
+    this.setState(initialState);
   };
 
   async handleSubmit(event) {
@@ -39,18 +39,28 @@ export default class GetInTouchForm extends PureComponent {
         message: this.state.message
       });
       console.log(response);
-      setTimeout(() => {
+      this.setState({
+        sending: false
+      });
+
+      if (response.status === 200) {
         this.setState({
-          name: "",
-          email: "",
-          message: "",
-          sending: false
+          success: true
         });
+      } else {
+        this.setState({
+          error: true
+        });
+      };
+       
+      setTimeout(() => {
+        this.setState(initialState);
       }, 2000);
     } catch (error) {
       console.error(error);
       this.setState({
-        sending: false
+        sending: false,
+        error: true
       });
     }
   };
@@ -82,15 +92,14 @@ export default class GetInTouchForm extends PureComponent {
       name,
       email,
       message,
-      sending
+      sending,
+      success,
+      error
     } = this.state;
 
-    let icon;
-    if (!sending) {
-      icon = <Styled.Send />;
-    } else {
-      icon = <Styled.Loading />;
-    }
+    let icon = !sending ?
+      (!success ? <Styled.Send /> : <Styled.Check />) :
+      <Styled.Loading />;
 
     return (
       <Styled.Form onSubmit={this.handleSubmit}>
@@ -98,8 +107,8 @@ export default class GetInTouchForm extends PureComponent {
         <Styled.Input placeholder="Name" name="name" type="text" required value={name} onChange={this.handleChange} disabled={sending} />
         <Styled.Input placeholder="Email" name="email" type="email" required value={email} onChange={this.handleChange} disabled={sending} />
         <Styled.TextArea placeholder="Type your message here..." required name="message" value={message} onChange={this.handleChange} disabled={sending} />
-        <Styled.Button primary type="submit" value="Submit">
-          {icon}
+        <Styled.Button primary type="submit" disabled={sending && !success} sending={sending} success={success} value="Submit">
+          {icon}{error && " Please, try again."}{success && " Message sent."}
         </Styled.Button>
       </Styled.Form>
     );
