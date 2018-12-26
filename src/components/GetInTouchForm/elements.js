@@ -57,13 +57,16 @@ export const TextArea = styled.textarea`
 
 export const Button = styled(CustomButton)`
   margin-top: 8px;
+  background: ${props => (!props.sending ? (!props.success ? "linear-gradient(to right, #FF9900 , #FF0000)" : "linear-gradient(to left, #56ab2f, #a8e063)")
+    : "linear-gradient(to right, #4ecdc4, #556270)")};
   width: 100%;
 `;
 
 export const Send = styled(CustomSend)`
-  width: 20px;
-  height: 20px;
+  height: 12px;
+  transform: scale(1.5);
   fill: #fff;
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
 `;
 
 const rotate = keyframes`
@@ -75,7 +78,10 @@ const rotate = keyframes`
 export const Loading = styled(CustomLoading)`
   width: 20px;
   height: 20px;
-  animation: ${rotate} .6s ease-in-out infinite;
+  animation: ${ rotate} .6s ease-in-out infinite;
+  fill: #fff;
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
+`;
 
 export const Check = styled(CustomCheck)`
   height: 12px;
