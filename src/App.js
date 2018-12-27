@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { 
+import {
   disableBodyScroll,
   enableBodyScroll,
   clearAllBodyScrollLocks
@@ -48,13 +48,15 @@ class App extends Component {
     } = this.state;
     return (
       <div className="App">
-        <Modal hidden={!showModal} handleClose={this.closeModal}>
-          <GetInTouchForm handleClose={this.closeModal} />
-        </Modal>
+        {showModal &&
+          <Modal hidden={!showModal} handleClose={this.closeModal}>
+            <GetInTouchForm handleClose={this.closeModal} />
+          </Modal>
+        }
         <Header handleOpen={this.openModal} />
         <Banner />
         <Skills />
-        <Articles handleOpen={this.openModal}  />
+        <Articles handleOpen={this.openModal} />
         <Footer />
       </div>
     );
