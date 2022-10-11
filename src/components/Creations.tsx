@@ -80,9 +80,9 @@ const creations: Creation[] = [
     ]
   },
   {
-    title: 'vniche/landing-page',
+    title: 'vniche/vniche.github.io',
     description: 'Landing page for https://vniche.me (this page)',
-    link: 'https://github.com/vniche/landing-page',
+    link: 'https://github.com/vniche/vniche.github.io',
     language: 'typescript',
     tags: [
       'web'
