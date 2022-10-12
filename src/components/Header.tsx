@@ -73,7 +73,7 @@ const navigation: Navigation[] = [
   },
   {
     icon: <DocumentIcon />,
-    label: 'Blog',
+    label: 'Newsletter',
     location: 'https://www.getrevue.co/profile/viniciusniche?via=vniche-landing-page',
   },
 ];
