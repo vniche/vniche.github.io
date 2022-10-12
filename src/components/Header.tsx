@@ -88,7 +88,7 @@ const renderHeaderItems = () => {
           {icon}
         </Button.StartIcon>
         {label}
-        {label === 'Blog' &&
+        {label === 'Newsletter' &&
           <Button.EndIcon>
             <NewWIndowIcon style={{ height: 12, width: 12 }} />
           </Button.EndIcon>
