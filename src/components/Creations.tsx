@@ -1,5 +1,6 @@
 import { Grid, Row, Col as GardenCol } from '@zendeskgarden/react-grid';
 import { Tiles as GardenTiles } from '@zendeskgarden/react-forms';
+import { Anchor } from '@zendeskgarden/react-buttons';
 import { Tag as GardenTag } from '@zendeskgarden/react-tags';
 import styled from 'styled-components';
 import { XXXL } from '@zendeskgarden/react-typography';
@@ -62,7 +63,7 @@ const creations: Creation[] = [
   {
     title: 'vniche/novadax-go',
     description: 'Go HTTP client for NovaDAX API (https://www.novadax.com.br/api-de-negociacao)',
-    link: 'https://github.com/vniche/twitter-go',
+    link: 'https://github.com/vniche/novadax-go',
     language: 'go',
     tags: [
       'library',
@@ -91,9 +92,10 @@ const creations: Creation[] = [
 ];
 
 const renderCreations = () => {
-  return creations.map(({ title, description, language, tags }: Creation, index) => (
+  return creations.map(({ title, link, description, language, tags }: Creation, index) => (
     <Col sm={4} key={index.toString()}>
-      <Tile value={index.toString()}>
+      <Anchor href={link}>
+      <Tile value={index.toString()} onClick={() => window.location.href = link}>
         <TileLabel>
           {title} <></>
           <GitHubIcon />
@@ -107,6 +109,7 @@ const renderCreations = () => {
           </Tag>
         ))}
       </Tile>
+      </Anchor>
     </Col>
   ));
 };
@@ -114,7 +117,7 @@ const renderCreations = () => {
 const Creations = () => (
   <Grid id='creations'>
     <XXXL>Creations</XXXL>
-    <Tiles name="creations" aria-label="Creations" isCentered={false} onChange={({ target: { value } }) => window.location.href = creations[Number(value)].link}>
+    <Tiles name="creations" aria-label="Creations" isCentered={false}>
       <Row>
         {renderCreations()}
       </Row>
