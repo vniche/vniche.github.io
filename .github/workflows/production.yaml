@@ -1,0 +1,73 @@
+name: deploy
+
+run-name: Deploy to GH Pages
+
+on:
+  push:
+    branches:
+      - "**/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Build up git commit short SHA
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+
+      - name: Download dependencies from cache if present
+        id: cache-deps
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Download dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Build the distribution bundle
+        run: yarn build
+
+      - name: Compress distribution bundle
+        run: cd build && tar -czvf ../${{ github.sha }}.tar.gz ./
+
+      - name: Upload release bundle
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-bundle
+          path: ${{ github.sha }}.tar.gz
+
+  deploy:
+    needs: build
+    runs-on: "ubuntu-latest"
+
+    environment:
+      name: production
+      url: https://vniche.me
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Download release bundle
+        uses: actions/download-artifact@v3
+        with:
+          name: "release-bundle"
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy static site to S3 bucket
+        run: aws s3 sync ./ s3://vniche.me --delete
