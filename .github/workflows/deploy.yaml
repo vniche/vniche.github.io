@@ -1,0 +1,16 @@
+name: deploy
+
+run-name: Deploy to GH Pages
+
+on:
+  push:
+    branches:
+      - "**/**"
+
+jobs:
+  deploy:
+    needs: deploy
+    permissions:
+      actions: read
+      contents: read
+    uses: ./build.yaml

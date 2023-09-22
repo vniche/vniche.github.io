@@ -1,0 +1,42 @@
+name: yarn build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Build up git commit short SHA
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+
+      - name: Download dependencies from cache if present
+        id: cache-deops
+        uses: actions/cache@v3
+        with:
+          path: yarn.lock
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Download dependencies if needed
+        if: steps.cache-primes.outputs.cache-hit != 'true'
+        run: yarn --frozen-lockfile
+
+      - name: Build the distribution bundle
+        run: yarn build
+
+      - name: Compress distribution bundle
+        run: tar -czvf ${GITHUB_SHA::7} build/
+
+      - name: Archive release artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-bundle
+          path: ${GITHUB_SHA::7}.tar.gz
