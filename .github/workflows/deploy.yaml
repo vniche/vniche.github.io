@@ -37,7 +37,7 @@ jobs:
         run: yarn build
 
       - name: Compress distribution bundle
-        run: cd build && tar -czvf ${{ github.sha }}.tar.gz ./
+        run: cd build && tar -czvf ../${{ github.sha }}.tar.gz ./
 
       - name: Archive release artifact
         uses: actions/upload-artifact@v3
