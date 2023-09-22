@@ -53,10 +53,6 @@ jobs:
       url: https://vniche.me
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-
       - name: Download release bundle
         uses: actions/download-artifact@v3
         with:
