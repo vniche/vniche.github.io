@@ -37,13 +37,13 @@ jobs:
         run: yarn build
 
       - name: Compress distribution bundle
-        run: tar -czvf ${GITHUB_SHA::7}.tar.gz build/
+        run: cd build && tar -czvf "${{GITHUB_SHA}}.tar.gz" ./
 
       - name: Archive release artifact
         uses: actions/upload-artifact@v3
         with:
           name: release-bundle
-          path: ${GITHUB_SHA::7}.tar.gz
+          path: "${{GITHUB_SHA}}.tar.gz"
           if-no-files-found: error
     
   deploy:
