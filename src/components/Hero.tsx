@@ -1,4 +1,4 @@
-import { Grid, Row, Col as GardenCol } from '@zendeskgarden/react-grid';
+import { Grid, Row } from '@zendeskgarden/react-grid';
 import { MD, XXXL } from '@zendeskgarden/react-typography';
 import { Well, Title } from '@zendeskgarden/react-notifications';
 import { Button } from '@zendeskgarden/react-buttons';
@@ -21,10 +21,6 @@ const ButtonIcon = styled(Button.EndIcon)`
 const ArrowIcon = styled(ArrowLeftIcon)`
   width: 18px;
   height: 18px;
-`;
-
-const Col = styled(GardenCol)`
-  height: 100%;
 `;
 
 const Hero = () => {
