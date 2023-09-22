@@ -65,5 +65,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Decompress distribution bundle
+        run: |
+          tar -xzvf ${{ github.sha }}.tar.gz
+          rm -f ${{ github.sha }}.tar.gz
+
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./ s3://vniche.me --delete
