@@ -35,15 +35,11 @@ jobs:
       - name: Build the distribution bundle
         run: yarn build
 
-      - name: Compress distribution bundle
-        run: cd build && tar -czvf ../${{ github.sha }}.tar.gz ./
-
-      - name: Archive release artifact
-        uses: actions/upload-artifact@v3
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v2
         with:
           name: release-bundle
-          path: ${{ github.sha }}.tar.gz
-          if-no-files-found: error
+          path: build/
 
   deploy:
     needs: build
