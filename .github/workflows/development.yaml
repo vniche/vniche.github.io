@@ -15,9 +15,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Build up git commit short SHA
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
       - uses: actions/setup-node@v3
         with:
           node-version: "lts/*"
