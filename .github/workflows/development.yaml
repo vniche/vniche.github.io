@@ -5,7 +5,7 @@ run-name: Deploy to development
 on:
   push:
     branches:
-      - "**/**"
+      - "chore/**"
 
 jobs:
   build:
