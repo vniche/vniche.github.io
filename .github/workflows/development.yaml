@@ -1,6 +1,6 @@
 name: deploy
 
-run-name: Deploy to GH Pages
+run-name: Deploy to development
 
 on:
   push:

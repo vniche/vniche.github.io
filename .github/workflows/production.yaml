@@ -1,11 +1,11 @@
 name: deploy
 
-run-name: Deploy to GH Pages
+run-name: Deploy to production
 
 on:
   push:
     branches:
-      - "**/**"
+      - "main"
 
 jobs:
   build:
