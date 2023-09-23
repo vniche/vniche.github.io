@@ -1,12 +1,9 @@
 import {
   Header as GardenHeader,
   HeaderItem,
-  HeaderItemIcon,
   HeaderItemText,
   HeaderItemWrapper
 } from '@zendeskgarden/react-chrome';
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { ReactComponent as ProductIcon } from '../logo.svg';
 import { ReactComponent as ListIcon } from '@zendeskgarden/svg-icons/src/16/list-bullet-stroke.svg';
 import { ReactComponent as DocumentIcon } from '@zendeskgarden/svg-icons/src/16/file-document-stroke.svg';
 import { ReactComponent as CodeIcon } from '@zendeskgarden/svg-icons/src/16/markup-stroke.svg';
@@ -150,12 +147,7 @@ const Header = () => {
       style={{
         top: (scrollTop > 10 ? -52 : 0),
       }}>
-      <LogoHeaderItem hasLogo>
-        <HeaderItemIcon>
-          <ProductIcon style={{ color: PALETTE.green[400] }} />
-        </HeaderItemIcon>
-        <HeaderItemText>Vinícius Niche</HeaderItemText>
-      </LogoHeaderItem>
+      <LogoHeaderItem hasLogo />
       <>{size !== 'xs' && renderHeaderItems()}</>
       <HeaderItemWrapper>
         <Button isPill isPrimary style={{ fontWeight: 700 }} onClick={() => window.location.href = '#connect'}>Connect</Button>
