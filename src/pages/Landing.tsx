@@ -5,6 +5,7 @@ import Creations from '../components/Creations';
 import Experience from '../components/Experience';
 import { useResponsive } from '../providers/ResponsiveProvider';
 import Connect from '../components/Connect';
+import Certifications from '../components/Certifications';
 
 const Grid = styled(GardenGrid)`
   margin-right: auto !important;
@@ -34,7 +35,16 @@ const Landing = () => {
       </Row>
       <Row
         style={{
-          margin: (size !== 'xs' ? '150px 0' : '50px 0'),
+          margin: '50px 0',
+          paddingTop: '50px',
+          borderTop: '1px solid #cdcbc8'
+        }}
+      >
+        <Certifications />
+      </Row>
+      <Row
+        style={{
+          margin: '50px 0',
           borderTop: '1px solid #cdcbc8'
         }}
       >
