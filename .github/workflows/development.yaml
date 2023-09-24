@@ -29,6 +29,8 @@ jobs:
 
       - name: Build the distribution bundle
         run: yarn build
+        env:
+          PUBLIC_URL: ${{ env.PUBLIC_URL }}
 
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v2

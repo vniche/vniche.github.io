@@ -29,6 +29,9 @@ jobs:
 
       - name: Build the distribution bundle
         run: yarn build
+        env:
+          GOOGLE_TAG: ${{ env.GOOGLE_TAG }}
+          PUBLIC_URL: ${{ env.PUBLIC_URL }}
 
       - name: Compress distribution bundle
         run: cd build && tar -czvf ../${{ github.sha }}.tar.gz ./
