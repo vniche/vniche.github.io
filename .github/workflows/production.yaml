@@ -30,7 +30,7 @@ jobs:
       - name: Build the distribution bundle
         run: yarn build
         env:
-          REACT_APP_GOOGLE_TAG: ${{ env.GOOGLE_TAG }}
+          REACT_APP_GOOGLE_TAG: ${{ vars.GOOGLE_TAG }}
           PUBLIC_URL: ${{ env.PUBLIC_URL }}
 
       - name: Compress distribution bundle
@@ -70,3 +70,6 @@ jobs:
 
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./ s3://vniche.me --delete
+
+      - name: Create invalidation for CloudFront distribution
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
